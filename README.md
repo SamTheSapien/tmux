@@ -1,5 +1,5 @@
 # tmux
-#My Tmux configuration
+# My Tmux configuration
 #
 # Sam Tmux Config
 #
