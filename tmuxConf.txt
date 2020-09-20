@@ -1,8 +1,9 @@
 #
 # Sam Tmux Config
-#
-# 
-#
+# Just rename file to
+# ~/.tmux.conf and save it
+# Tmux will pick this conf
+# file next time it starts
 
 # Some tweaks to the status line
 set -g status-right "%H:%M"
