@@ -1,10 +1,6 @@
-# tmux
 # My Tmux configuration
-#
-# Sam Tmux Config
-# Just rename file to
-# ~/.tmux.conf and save it
-# Tmux will pick this conf file
+
+### Sam Tmux Config Just rename file to ~/.tmux.conf and save it. Tmux will pick this conf file
 
 ### Some tweaks to the status line
 set -g status-right "%H:%M"
