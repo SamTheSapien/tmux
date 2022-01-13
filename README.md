@@ -2,6 +2,9 @@
 
 ### Sam Tmux Config Just rename file to ~/.tmux.conf and save it. Tmux will pick this conf file
 
+### -------------------
+### File
+### -------------------
 ### Some tweaks to the status line
 set -g status-right "%H:%M"
 set -g window-status-current-style "underscore"
