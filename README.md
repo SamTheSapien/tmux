@@ -4,6 +4,9 @@
 ### -------------------
 ### File
 ### -------------------
+### reload config in terminal
+## tmux source-file ~/.tmux.conf
+
 ### reload config file (change file location to your the tmux.conf you want to use)
 bind r source-file ~/.tmux.conf
 
