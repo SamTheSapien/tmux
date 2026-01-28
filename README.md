@@ -1,78 +1,8 @@
 # My Tmux configuration
-### Sam Tmux Config Just rename file to ~/.tmux.conf and save it. Tmux will pick this conf file
-### https://tmuxcheatsheet.com/
-### -------------------
-### File
-### -------------------
-### reload config in terminal
-## tmux source-file ~/.tmux.conf
+Sam Tmux Config Just rename file to ~/.tmux.conf and save it. Tmux will pick this conf file
+https://tmuxcheatsheet.com/
 
-### reload config file (change file location to your the tmux.conf you want to use)
-bind r source-file ~/.tmux.conf
-
-### Some tweaks to the status line
-set -g status-right "%H:%M"
-set -g window-status-current-style "underscore"
-### If running inside tmux ($TMUX is set), then change the status line to red
-%if #{TMUX}
-set -g status-bg red
-%endif
-### Enable RGB colour if running in xterm(1)
-set-option -sa terminal-overrides ",xterm*:Tc"
-### Change the default $TERM to tmux-256color
-set -g default-terminal "tmux-256color"
-### No bells at all
-set -g bell-action none
-### Keep windows around after they exit
-set -g remain-on-exit on
-
-## Keys bindings
-### Change the prefix key to C-a
-set -g prefix C-a
-unbind C-b
-bind C-a send-prefix
-### Rename a Tmux Window with Ctrl-a r
-bind r command-prompt -I "#W" "rename-window '%%'"
-### Bind Ctrl-a + n (new) to create a new window, unbinding the default Ctrl-a + c
-bind n new-window
-unbind c
-### Bind Ctrl-a + e (exit) to close window, maintaining the default Ctrl-a + x
-bind e confirm-before -p "Kill this pane? (y/n)" kill-pane
-### switch panes using Alt-arrow without prefix
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
-### split panes using | and -
-bind '\' split-window -h
-bind - split-window -v
-unbind '"'
-unbind %
-### Some extra key bindings to select higher numbered windows
-bind F1 selectw -t:10
-bind F2 selectw -t:11
-bind F3 selectw -t:12
-bind F4 selectw -t:13
-bind F5 selectw -t:14
-bind F6 selectw -t:15
-bind F7 selectw -t:16
-bind F8 selectw -t:17
-bind F9 selectw -t:18
-bind F10 selectw -t:19
-bind F11 selectw -t:20
-bind F12 selectw -t:21
-### A key to toggle between smallest and largest sizes if a window is visible in
-### multiple places
-bind F set -w window-size
-#### Keys to toggle monitoring activity in a window and the synchronize-panes option
-bind m set monitor-activity
-bind y set synchronize-panes\; display 'synchronize-panes #{?synchronize-panes,on,off}'
-
-## Scroll in terminal
-### Turn the mouse on, but without copy mode dragging
-set -g mouse on
-set-option -g set-clipboard on
-unbind -n MouseDrag1Pane
-unbind -Tcopy-mode MouseDrag1Pane
-
-
+Install:
+git clone https://github.com/SamTheSapien/tmux.git
+cd tmux
+cp tmuxConf.txt ~/.tmux.conf
