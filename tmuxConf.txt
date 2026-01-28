@@ -7,12 +7,10 @@
 
 # Some tweaks to the status line
 set -g status-right "%H:%M"
-set -g window-status-current-style "underscore"
+set -g window-status-current-style underscore
 
 # If running inside tmux ($TMUX is set), then change the status line to red
-%if "#{env:TMUX}"
-set -g status-style bg=red
-%endif
+if-shell '[ -n "$TMUX" ]' 'set -g status-style bg=red'
 
 # Enable RGB colour if running in xterm(1)
 set-option -sa terminal-overrides ",xterm*:Tc"
@@ -50,27 +48,21 @@ bind F10 selectw -t:19
 bind F11 selectw -t:20
 bind F12 selectw -t:21
 
-# A key to toggle between smallest and largest sizes if a window is visible in
-# multiple places
-bind F set -w window-size
-
 # Keys to toggle monitoring activity in a window and the synchronize-panes option
-bind m set monitor-activity
-bind y set synchronize-panes\; display 'synchronize-panes #{?synchronize-panes,on,off}'
+bind 'm' set monitor-activity
+bind 'y' set synchronize-panes \; display-message "synchronize-panes #{?synchronize-panes,on,off}"
 
 # split panes using | and -
-bind | split-window -h
-bind - split-window -v
+bind '|' split-window -h
+bind '-' split-window -v
 unbind '"'
-unbind %
+unbind '%'
 
 # reload config file (change file location to your the tmux.conf you want to use)
-bind r source-file ~/.tmux.conf
+bind 'r' source-file ~/.tmux.conf
 
 # switch panes using Alt-arrow without prefix
 bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
-
-
