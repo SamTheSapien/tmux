@@ -5,6 +5,8 @@ Useful URL:
 https://tmuxcheatsheet.com/
 
 Install:
+```
 git clone https://github.com/SamTheSapien/tmux.git
 cd tmux
 cp tmuxConf.txt ~/.tmux.conf
+```
