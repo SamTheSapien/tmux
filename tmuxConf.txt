@@ -10,8 +10,8 @@ set -g status-right "%H:%M"
 set -g window-status-current-style "underscore"
 
 # If running inside tmux ($TMUX is set), then change the status line to red
-%if #{TMUX}
-set -g status-bg red
+%if "#{env:TMUX}"
+set -g status-style bg=red
 %endif
 
 # Enable RGB colour if running in xterm(1)
@@ -34,7 +34,7 @@ bind C-a send-prefix
 # Turn the mouse on, but without copy mode dragging
 set -g mouse on
 unbind -n MouseDrag1Pane
-unbind -Tcopy-mode MouseDrag1Pane
+unbind -T copy-mode MouseDrag1Pane
 
 # Some extra key bindings to select higher numbered windows
 bind F1 selectw -t:10
@@ -72,4 +72,5 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+
 
