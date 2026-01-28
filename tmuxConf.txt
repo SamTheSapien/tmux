@@ -6,11 +6,18 @@
 # file next time it starts
 
 # Some tweaks to the status line
-set -g status-right "%H:%M"
-set -g window-status-current-style underscore
+# Whoami on the left
+set -g status-left "#(whoami)   "
+# IP and date on the right -> Even cleaner (IP only when it exists)
+set -g status-right "#(hostname -I 2>/dev/null | awk '{print $1}')  %H:%M"
+# give tmux more room
+set -g status-left-length 40
+set -g status-right-length 80
+# Makes the current tmux window have a white background, blue bold text, and a blue underline in the status bar.
+set -g window-status-current-style bg=white,fg=blue,bold,underscore
 
-# If running inside tmux ($TMUX is set), then change the status line to red
-if-shell '[ -n "$TMUX" ]' 'set -g status-style bg=red'
+# If running inside tmux ($TMUX is set), then change the status line to blue
+if-shell '[ -n "$TMUX" ]' 'set -g status-style bg=blue'
 
 # Enable RGB colour if running in xterm(1)
 set-option -sa terminal-overrides ",xterm*:Tc"
@@ -66,3 +73,4 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+
