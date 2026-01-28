@@ -5,6 +5,9 @@
 # Tmux will pick this conf
 # file next time it starts
 
+# reload config file (change file location to your the tmux.conf you want to use) using CTRL+.
+bind '.' source-file ~/.tmux.conf
+
 # Some tweaks to the status line
 # Whoami on the left
 set -g status-left "#(whoami)   "
@@ -18,16 +21,12 @@ set -g window-status-current-style bg=white,fg=blue,bold,underscore
 
 # If running inside tmux ($TMUX is set), then change the status line to blue
 if-shell '[ -n "$TMUX" ]' 'set -g status-style bg=blue'
-
 # Enable RGB colour if running in xterm(1)
 set-option -sa terminal-overrides ",xterm*:Tc"
-
 # Change the default $TERM to tmux-256color
 set -g default-terminal "tmux-256color"
-
 # No bells at all
 set -g bell-action none
-
 # Keep windows around after they exit
 set -g remain-on-exit on
 
@@ -35,6 +34,16 @@ set -g remain-on-exit on
 set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
+# split panes using | and -
+bind '|' split-window -h
+bind '-' split-window -v
+unbind '"'
+unbind '%'
+# Rename a Tmux Window with Ctrl-a r
+bind 'r' command-prompt -I "#W" "rename-window '%%'"
+# Bind Ctrl-a + n (new) to create a new window
+bind 'n' new-window
+
 
 # Turn the mouse on, but without copy mode dragging
 set -g mouse on
@@ -59,18 +68,13 @@ bind F12 selectw -t:21
 bind 'm' set monitor-activity
 bind 'y' set synchronize-panes \; display-message "synchronize-panes #{?synchronize-panes,on,off}"
 
-# split panes using | and -
-bind '|' split-window -h
-bind '-' split-window -v
-unbind '"'
-unbind '%'
 
-# reload config file (change file location to your the tmux.conf you want to use)
-bind 'r' source-file ~/.tmux.conf
+
 
 # switch panes using Alt-arrow without prefix
 bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+
 
