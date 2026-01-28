@@ -1,7 +1,7 @@
 # My Tmux configuration
 Sam Tmux Config Just rename file to ~/.tmux.conf and save it. Tmux will pick this conf file
 
-Usefful URL:
+Useful URL:
 https://tmuxcheatsheet.com/
 
 Install:
