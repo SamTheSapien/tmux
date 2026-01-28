@@ -43,7 +43,11 @@ unbind '%'
 bind 'r' command-prompt -I "#W" "rename-window '%%'"
 # Bind Ctrl-a + n (new) to create a new window
 bind 'n' new-window
-
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
 
 # Turn the mouse on, but without copy mode dragging
 set -g mouse on
@@ -67,14 +71,3 @@ bind F12 selectw -t:21
 # Keys to toggle monitoring activity in a window and the synchronize-panes option
 bind 'm' set monitor-activity
 bind 'y' set synchronize-panes \; display-message "synchronize-panes #{?synchronize-panes,on,off}"
-
-
-
-
-# switch panes using Alt-arrow without prefix
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
-
-
