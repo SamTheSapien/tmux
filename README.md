@@ -6,9 +6,11 @@ https://tmuxcheatsheet.com/
 
 Install:
 ```
+wget https://raw.githubusercontent.com/SamTheSapien/tmux/refs/heads/master/tmux.conf -o ~/.tmux.conf
+
 git clone https://github.com/SamTheSapien/tmux.git
 cd tmux
-cp tmuxConf.txt ~/.tmux.conf
+cp tmux.conf ~/.tmux.conf
 ```
 
 or 
