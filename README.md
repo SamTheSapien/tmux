@@ -6,17 +6,15 @@ https://tmuxcheatsheet.com/
 
 Install:
 ```
-wget https://raw.githubusercontent.com/SamTheSapien/tmux/refs/heads/master/tmux.conf -o ~/.tmux.conf
+wget https://raw.githubusercontent.com/SamTheSapien/tmux/refs/heads/master/tmux.conf -O ~/.tmux.conf
+```
 
 or
 
+```
 git clone https://github.com/SamTheSapien/tmux.git
 cd tmux
 cp tmux.conf ~/.tmux.conf
-```
-
 or 
-
-```
 tmux source-file ~/.tmux.conf
 ```
