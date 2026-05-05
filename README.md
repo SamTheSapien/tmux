@@ -8,6 +8,8 @@ Install:
 ```
 wget https://raw.githubusercontent.com/SamTheSapien/tmux/refs/heads/master/tmux.conf -o ~/.tmux.conf
 
+or
+
 git clone https://github.com/SamTheSapien/tmux.git
 cd tmux
 cp tmux.conf ~/.tmux.conf
